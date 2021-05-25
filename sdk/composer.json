@@ -1,0 +1,25 @@
+{
+  "name": "useoptic/optic-sdk",
+  "type": "library",
+  "description": "Optic PHP SDK",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adrien Brault",
+      "email": "adrien.brault@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1 || ^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Optic\\Sdk\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Optic\\Sdk\\\\Test\\": "tests/"
+    }
+  }
+}

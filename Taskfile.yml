@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  docker-up:
+    cmds:
+      - docker compose up -d --build
+
+  docker-sh:
+    deps: [docker-up]
+    cmds:
+      - docker compose run php bash

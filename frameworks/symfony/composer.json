@@ -1,0 +1,26 @@
+{
+  "name": "useoptic/optic-symfony",
+  "type": "library",
+  "description": "Optic PHP SDK",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adrien Brault",
+      "email": "adrien.brault@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1 || ^8.0",
+    "symfony/framework-bundle": "^4.4 || ^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Optic\\SdkBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Optic\\SdkBundle\\Test\\": "tests/"
+    }
+  }
+}
