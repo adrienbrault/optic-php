@@ -2,3 +2,4 @@ frameworks/*/vendor
 frameworks/*/composer.lock
 sdk/vendor
 sdk/composer.lock
+sdk/optic.log

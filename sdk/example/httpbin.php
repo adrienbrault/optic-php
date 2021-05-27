@@ -25,7 +25,7 @@ $psrHttpFactory = new PsrHttpFactory(
 $httpFoundationFactory = new HttpFoundationFactory();
 
 // Optic
-$opticClient = new Optic();
+$opticClient = Optic::create();
 
 // Action!
 $request = SymfonyRequest::createFromGlobals();
@@ -40,7 +40,7 @@ $httpBinRequest = $httpBinRequest->withUri(
 
 $httpBinResponse = $client->sendRequest($httpBinRequest);
 
-$opticClient->sendToConsole($httpBinRequest, $httpBinResponse);
+$opticClient->capture($httpBinRequest, $httpBinResponse);
 
 $response = $httpFoundationFactory->createResponse($httpBinResponse);
 $response->send();
