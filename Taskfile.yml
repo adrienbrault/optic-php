@@ -2,10 +2,12 @@ version: '3'
 
 tasks:
   docker-up:
+    description: Starts docker environment
     cmds:
-      - docker compose up -d --build
+      - docker-compose up -d --build
 
   docker-sh:
+    description: Opens a shell within the docker environment
     deps: [docker-up]
     cmds:
-      - docker compose run php bash
+      - docker-compose exec php bash

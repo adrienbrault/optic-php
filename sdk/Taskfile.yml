@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  proxy:
+    description: Starts httpbin.org proxy
+    cmds:
+      - php -S localhost:8000 example/httpbin.php
