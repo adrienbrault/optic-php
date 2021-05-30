@@ -2,8 +2,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use GuzzleHttp\Handler\StreamHandler;
-use Http\Adapter\Guzzle7\Client;
+use Http\Discovery\HttpAsyncClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Optic\Sdk\Optic;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
@@ -11,9 +10,7 @@ use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 // Setup
-$client = Client::createWithConfig([
-    'handler' => new StreamHandler(),
-]);
+$client = HttpAsyncClientDiscovery::find();
 
 $psrHttpFactory = new PsrHttpFactory(
     Psr17FactoryDiscovery::findServerRequestFactory(),
@@ -38,7 +35,7 @@ $httpBinRequest = $httpBinRequest->withUri(
         ->withPort(null)
 );
 
-$httpBinResponse = $client->sendRequest($httpBinRequest);
+$httpBinResponse = $client->sendAsyncRequest($httpBinRequest)->wait(true);
 
 $opticClient->capture($httpBinRequest, $httpBinResponse);
 
